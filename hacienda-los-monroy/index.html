@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F5EFEB">
+<title>Hacienda Los Monroy · Eventos y Servicios · Ciudad Juárez</title>
+<meta name="description" content="Bodas, XV años, baby showers y más en Hacienda Los Monroy, Ciudad Juárez. Servicios de comida, coctelería y ambientación. Cotiza por WhatsApp.">
+<meta property="og:title" content="Hacienda Los Monroy · Eventos y Servicios">
+<meta property="og:description" content="El encanto de una hacienda para tus momentos más especiales en Ciudad Juárez.">
+<meta property="og:image" content="img/logo.png">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ============ BARRA SUPERIOR ============ -->
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#inicio" aria-label="Inicio"><img src="img/logo.png" alt="Hacienda Los Monroy"></a>
+    <nav class="chips" aria-label="Secciones">
+      <a class="chip" href="#eventos">Eventos</a>
+      <a class="chip" href="#momentos">Momentos</a>
+      <a class="chip" href="#servicios">Servicios</a>
+      <a class="chip" href="#ambar">Ámbar</a>
+      <a class="chip" href="#espacios">Espacios</a>
+    </nav>
+  </div>
+  <div id="progress" aria-hidden="true"></div>
+</header>
+
+<main>
+<!-- ============ PORTADA (edita título y subtítulo aquí) ============ -->
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div class="rv">
+      <p class="eyebrow">Ciudad Juárez, Chihuahua</p>
+      <h1>El encanto de una hacienda para tus <em>momentos más especiales</em></h1>
+      <p class="lead">Arcos, jardines y rincones con calma de campo. Celebra bodas, XV años y reuniones inolvidables, con comida y ambientación a tu medida.</p>
+      <div class="acts">
+        <a class="btn solid" href="#eventos">Explorar menú y servicios</a>
+        <a class="btn" href="#" data-wa target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+      </div>
+      <div class="trust">
+        <div><b>6</b><span>Tipos de evento</span></div>
+        <div><b>3</b><span>Momentos únicos</span></div>
+        <div><b>Ámbar</b><span>Línea signature</span></div>
+      </div>
+    </div>
+    <div class="hero-art rv" id="heroArt">
+      <div class="seal" aria-hidden="true">
+        <svg viewBox="0 0 120 120"><defs><path id="circ" d="M60,60 m-47,0 a47,47 0 1,1 94,0 a47,47 0 1,1 -94,0"/></defs>
+          <text><textPath href="#circ" textLength="290" lengthAdjust="spacing">HACIENDA LOS MONROY · CIUDAD JUÁREZ · </textPath></text></svg>
+        <b>✦</b>
+      </div>
+      <div class="arch empty" id="heroArch"><span>Foto de portada</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CINTA DE EVENTOS (se llena sola) ============ -->
+<div class="marquee" aria-hidden="true"><div class="mq" id="mq"></div></div>
+
+<!-- ============ CAPÍTULOS: se llenan desde js/config.js ============ -->
+<section class="chapter" id="eventos" data-cat="eventos"><div class="wrap"></div></section>
+<section class="chapter" id="momentos" data-cat="momentos"><div class="wrap"></div></section>
+<section class="chapter" id="servicios" data-cat="servicios"><div class="wrap"></div></section>
+
+<!-- ============ ÁMBAR ============ -->
+<section class="ambar dark" id="ambar">
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow">Línea signature</p>
+      <h2><em>Ámbar</em></h2>
+      <p class="intro" id="ambarTxt"></p>
+    </div>
+    <div class="rail" id="ambarRail"></div>
+  </div>
+</section>
+
+<!-- ============ ESPACIOS ============ -->
+<section class="spaces" id="espacios">
+  <div class="wrap">
+    <div class="ch-head rv">
+      <div class="num">04</div>
+      <h2>Espacios y capacidad</h2>
+      <p>Conoce los ambientes de la hacienda y cuéntanos cuántos invitados esperas para recomendarte el montaje ideal.</p>
+    </div>
+    <div class="rail" id="spaces"></div>
+  </div>
+</section>
+
+<!-- ============ CÓMO FUNCIONA ============ -->
+<section class="steps">
+  <div class="wrap">
+    <p class="eyebrow rv">Así de fácil</p>
+    <div class="st-grid" id="steps"></div>
+  </div>
+</section>
+
+<!-- ============ COTIZADOR ============ -->
+<section class="cotiza" id="cotizar">
+  <div class="wrap">
+    <div class="ch-head rv">
+      <div class="num">05</div>
+      <h2>Cuéntanos tu idea</h2>
+      <p>Llena lo que sepas; nosotros armamos el mensaje y lo envías por WhatsApp.</p>
+    </div>
+    <div class="quote rv">
+      <div class="panel">
+        <div class="f"><label for="evt">Tipo de evento o momento</label>
+          <select id="evt"><option value="">Selecciona una opción</option></select></div>
+        <div class="two">
+          <div class="f"><label for="date">Fecha aproximada</label><input id="date" type="date"></div>
+          <div class="f"><label for="guests">Invitados</label><input id="guests" type="number" min="1" inputmode="numeric" placeholder="Ej. 100"></div>
+        </div>
+        <div class="f"><label for="name">Tu nombre</label><input id="name" type="text" autocomplete="name" placeholder="Nombre y apellido"></div>
+        <fieldset><legend>Servicios deseados</legend><div class="checks" id="checks"></div></fieldset>
+      </div>
+      <aside class="sum" aria-live="polite">
+        <h3>Tu mensaje</h3>
+        <pre id="preview"></pre>
+        <a class="btn light" id="send" href="#" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+      </aside>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ PIE DE PÁGINA ============ -->
+<footer>
+  <div class="wrap">
+    <div class="word" aria-hidden="true">Los Monroy</div>
+    <div class="fg">
+      <div><img src="img/logo-claro.png" alt="Hacienda Los Monroy"></div>
+      <div><h4>Ubicación</h4><p>Hacienda Los Monroy</p><p id="addr"></p><a id="mapLink" href="#" target="_blank" rel="noopener" hidden>Ver en el mapa</a></div>
+      <div><h4>Contacto y redes</h4>
+        <a href="#" data-wa target="_blank" rel="noopener">WhatsApp</a>
+        <a id="ig" href="#" target="_blank" rel="noopener" hidden>Instagram</a>
+        <a id="fb" href="#" target="_blank" rel="noopener" hidden>Facebook</a></div>
+    </div>
+    <div class="copy">© 2026 Hacienda Los Monroy · Ciudad Juárez</div>
+  </div>
+</footer>
+
+<!-- ============ BARRA FIJA INFERIOR (móvil) ============ -->
+<div class="dock">
+  <a class="btn" href="#cotizar" id="cartBtn">Mi cotización (0)</a>
+  <a class="btn green" href="#" data-wa target="_blank" rel="noopener">WhatsApp</a>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

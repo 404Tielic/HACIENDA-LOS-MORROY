@@ -1,0 +1,195 @@
+/* =====================================================================
+   STYLES.CSS · Diseño moderno, pensado primero para celular.
+   Colores en :root. El lenguaje visual usa ARCOS, inspirados en el logotipo.
+   ===================================================================== */
+
+/* 1. MARCA ----------------------------------------------------------- */
+:root{
+  --bg:#F5EFEB; --card:#EAD7C3; --ink:#3D2D1E; --olive:#606C4C; --ocre:#A68A64;
+  --serif:'Playfair Display',Georgia,'Times New Roman',serif;
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --arch:999px 999px 16px 16px;   /* forma de arco */
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--sans);overflow-x:hidden;padding-bottom:calc(78px + env(safe-area-inset-bottom,0px))}
+/* Textura de papel sutil */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+img{max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.08;margin:0}
+em{font-style:italic}
+:focus-visible{outline:2px solid var(--ocre);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1180px,100% - 36px);margin-inline:auto;position:relative}
+section{position:relative;overflow:hidden}
+
+/* 2. BARRA SUPERIOR --------------------------------------------------- */
+header{position:sticky;top:0;z-index:50;background:rgba(245,239,235,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(166,138,100,.4);padding-top:env(safe-area-inset-top,0px)}
+.bar{display:flex;align-items:center;gap:10px;padding:8px 0}
+.brand img{height:42px;width:auto;display:block}
+.chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin-left:auto;padding:4px 2px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;text-decoration:none;font-size:13.5px;font-weight:500;padding:9px 14px;border-radius:99px;transition:.25s var(--ease)}
+.chip:hover,.chip.on{background:var(--ink);color:var(--bg)}
+#progress{position:absolute;left:0;bottom:-1px;height:3px;width:100%;transform-origin:left;transform:scaleX(0);background:var(--ocre)}
+
+/* 3. BARRA FIJA INFERIOR (móvil) -------------------------------------- */
+.dock{position:fixed;inset:auto 0 0 0;z-index:60;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(245,239,235,.96);backdrop-filter:blur(10px);border-top:1px solid rgba(166,138,100,.5)}
+.dock .btn{flex:1;padding:12px 10px}
+
+/* 4. BOTONES / TEXTOS ------------------------------------------------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;font:600 15px var(--sans);text-decoration:none;cursor:pointer;padding:13px 26px;border-radius:99px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);transition:.25s var(--ease)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(61,45,30,.2)}
+.btn.solid{background:var(--ink);color:var(--bg)}
+.btn.solid:hover{background:var(--olive);border-color:var(--olive)}
+.btn.green{background:var(--olive);border-color:var(--olive);color:#fff}
+.btn.light{background:var(--bg);border-color:var(--bg);color:var(--ink)}
+.btn.light:hover{background:var(--ocre);border-color:var(--ocre)}
+.eyebrow{margin:0 0 12px;font-size:12px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;color:var(--olive);display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:34px;height:1px;background:currentColor}
+.dark .eyebrow{color:var(--ocre)}
+
+/* 5. PORTADA ---------------------------------------------------------- */
+.hero{padding:30px 0 56px}
+.hero-grid{display:grid;gap:40px;align-items:center}
+.hero h1{font-size:clamp(42px,12.5vw,88px);letter-spacing:-.015em}
+.hero h1 em{color:var(--olive)}
+.lead{max-width:46ch;margin:20px 0 26px;font-size:17.5px;color:rgba(61,45,30,.88)}
+.acts{display:grid;gap:12px;max-width:360px}
+.trust{display:flex;gap:26px;margin-top:30px;padding-top:22px;border-top:1px solid rgba(166,138,100,.5)}
+.trust b{display:block;font:500 26px var(--serif)}
+.trust span{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:rgba(61,45,30,.7)}
+/* Arco principal */
+.hero-art{position:relative;max-width:420px;width:86%;margin:0 auto}
+.hero-art::before{content:"";position:absolute;inset:0;border:1px solid var(--ocre);border-radius:var(--arch);transform:translate(16px,16px)}
+.arch{position:relative;aspect-ratio:3/4;border-radius:var(--arch);overflow:hidden;background:linear-gradient(165deg,#f0e2d1,var(--card) 55%,#d7bb98)}
+.arch img{width:100%;height:100%;object-fit:cover;display:block}
+.arch.empty::after{content:"";position:absolute;inset:0;background:url(../img/logo.png) center 55%/52% no-repeat;opacity:.13}
+.arch.empty span{position:absolute;left:0;right:0;bottom:14px;text-align:center;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(61,45,30,.5)}
+/* Sello giratorio */
+.seal{position:absolute;left:-12px;bottom:34px;width:112px;height:112px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;z-index:2;box-shadow:0 10px 26px rgba(61,45,30,.3)}
+.seal svg{position:absolute;inset:6px;width:calc(100% - 12px);animation:spin 24s linear infinite}
+.seal text{font:600 9.6px var(--sans);fill:var(--bg);letter-spacing:.12em}
+.seal b{font:500 26px var(--serif);color:var(--ocre)}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* 6. CINTA DE EVENTOS ------------------------------------------------- */
+.marquee{background:var(--ink);color:var(--bg);overflow:hidden;padding:16px 0;border-block:1px solid var(--ocre)}
+.mq{display:flex;width:max-content;animation:mq 38s linear infinite}
+.mq span{font:italic 500 clamp(22px,5vw,32px) var(--serif);padding:0 22px;white-space:nowrap}
+.mq i{font-style:normal;color:var(--ocre)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* 7. CAPÍTULOS (Eventos, Momentos, Servicios) ------------------------- */
+.chapter{padding:72px 0 24px}
+.ch-head{display:grid;gap:6px;margin-bottom:26px}
+.num{font:500 clamp(54px,15vw,100px) var(--serif);line-height:.9;color:transparent;-webkit-text-stroke:1px var(--ocre)}
+.ch-head h2{font-size:clamp(30px,8vw,50px)}
+.ch-head p{margin:6px 0 0;max-width:44ch;color:rgba(61,45,30,.8)}
+/* Carrusel en móvil, cuadrícula en escritorio */
+.rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -18px;padding:4px 18px 22px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.card{flex:0 0 78%;scroll-snap-align:center;background:var(--card);border-radius:22px;padding:10px;display:flex;flex-direction:column;transition:.35s var(--ease)}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 36px rgba(61,45,30,.18)}
+.card .arch{aspect-ratio:4/4.4}
+.card .body{padding:16px 10px 12px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-size:23px}
+.card p{margin:0;font-size:14.5px;flex:1;color:rgba(61,45,30,.88)}
+.tag{align-self:flex-start;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--bg);padding:5px 11px;border-radius:99px}
+.add{margin-top:8px;min-height:46px;font:600 14px var(--sans);padding:11px 16px;border-radius:99px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;transition:.25s var(--ease)}
+.add:hover{background:var(--ink);color:var(--bg)}
+.add[aria-pressed=true]{background:var(--olive);border-color:var(--olive);color:#fff}
+
+/* 8. ÁMBAR (sección oscura) ------------------------------------------- */
+.dark{background:var(--ink);color:var(--bg)}
+.ambar{margin-top:56px;padding:84px 0 70px;background:radial-gradient(120% 60% at 85% 0,rgba(166,138,100,.28),transparent 60%),var(--ink)}
+.ambar h2{font-size:clamp(64px,22vw,190px);letter-spacing:-.02em;line-height:.9}
+.ambar h2 em{color:var(--ocre)}
+.ambar .intro{max-width:46ch;margin:18px 0 34px;color:rgba(245,239,235,.85)}
+.ambar .card{background:rgba(245,239,235,.07);border:1px solid rgba(166,138,100,.55)}
+.ambar .card:hover{box-shadow:0 18px 36px rgba(0,0,0,.35)}
+.ambar .card p{color:rgba(245,239,235,.85)}
+.ambar .arch{background:linear-gradient(165deg,#5a4631,#4a3827)}
+.ambar .arch.empty::after{background-image:url(../img/logo-claro.png);opacity:.14}
+.ambar .arch.empty span{color:rgba(245,239,235,.6)}
+.ambar .add{border-color:var(--bg);color:var(--bg)}
+.ambar .add:hover{background:var(--bg);color:var(--ink)}
+.ambar .add[aria-pressed=true]{background:var(--ocre);border-color:var(--ocre);color:#2b1f14}
+
+/* 9. ESPACIOS --------------------------------------------------------- */
+.spaces{padding:84px 0 40px}
+.sp{flex:0 0 82%;scroll-snap-align:center}
+.sp .arch{aspect-ratio:4/4.6}
+.sp h3{font-size:25px;margin:16px 0 4px}
+.sp p{margin:0;font-size:14.5px}
+.cap{display:inline-block;margin-top:12px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--olive);border-top:1px solid var(--ocre);padding-top:10px}
+
+/* 10. PASOS ----------------------------------------------------------- */
+.steps{padding:56px 0 84px}
+.st-grid{display:grid;gap:26px;margin-top:8px}
+.st{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;padding-top:20px;border-top:1px solid var(--ocre)}
+.st b{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--ink);color:var(--bg);font:500 20px var(--serif)}
+.st h3{font-size:24px;margin-bottom:4px}
+.st p{margin:0;font-size:15px}
+
+/* 11. COTIZADOR ------------------------------------------------------- */
+.cotiza{background:var(--card);padding:84px 0 90px}
+.quote{display:grid;gap:22px}
+.panel{background:var(--bg);border-radius:22px;padding:24px 18px}
+label,legend{font-size:13px;font-weight:600}
+.f{display:grid;gap:6px;margin-bottom:14px}
+input,select{font:400 16px var(--sans);color:var(--ink);background:#fff8f2;border:1px solid var(--ocre);border-radius:12px;padding:13px 14px;width:100%;min-height:48px;transition:.2s}
+input:hover,select:hover{border-color:var(--ink)}
+.two{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+fieldset{border:0;padding:0;margin:0}
+.checks{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.checks label{display:flex;align-items:center;gap:8px;font-weight:500;font-size:14px;background:#fff8f2;border:1px solid var(--ocre);padding:10px 14px;border-radius:99px;cursor:pointer;transition:.2s}
+.checks label:hover{border-color:var(--ink)}
+.checks input{width:auto;min-height:0;accent-color:var(--olive);margin:0}
+.sum{background:var(--ink);color:var(--bg);border-radius:22px;padding:24px 20px;align-self:start}
+.sum h3{font-size:24px;margin-bottom:12px}
+.sum pre{white-space:pre-wrap;font:400 14px/1.65 var(--sans);margin:0 0 18px;color:rgba(245,239,235,.88)}
+.sum .btn{width:100%}
+
+/* 12. PIE ------------------------------------------------------------- */
+footer{background:var(--ink);color:var(--bg);padding:64px 0 36px;overflow:hidden}
+.word{font:italic 500 clamp(44px,15vw,150px) var(--serif);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(166,138,100,.7);margin-bottom:34px;white-space:nowrap}
+.fg{display:grid;gap:28px}
+.fg img{width:140px;aspect-ratio:560/532;height:auto}
+footer h4{font:500 19px var(--serif);margin:0 0 8px;color:var(--ocre)}
+footer p,footer a{display:block;margin:4px 0;font-size:15px;color:rgba(245,239,235,.88);text-decoration:none}
+footer a{padding:4px 0}
+footer a:hover{color:var(--ocre)}
+.copy{margin-top:30px;padding-top:16px;border-top:1px solid rgba(166,138,100,.4);font-size:13px;opacity:.7}
+
+/* 13. APARICIÓN SUAVE ------------------------------------------------- */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.mq,.seal svg{animation:none}html{scroll-behavior:auto}}
+
+/* 14. TABLET Y ESCRITORIO -------------------------------------------- */
+@media(min-width:640px){
+  .acts{grid-auto-flow:column;max-width:none;justify-content:start}
+  .card{flex-basis:42%}.sp{flex-basis:46%}
+  .st-grid{grid-template-columns:repeat(3,1fr);gap:30px}
+}
+@media(min-width:960px){
+  .hero{padding:56px 0 90px}
+  .hero-grid{grid-template-columns:1.15fr .85fr}
+  .hero-art{width:100%}
+  .rail{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;overflow:visible;margin:0;padding:4px 0 22px}
+  .card,.sp{flex:none}
+  .quote{grid-template-columns:1.15fr .85fr;gap:30px}
+  .panel{padding:40px}
+  .sum{padding:34px;position:sticky;top:96px}
+  .fg{grid-template-columns:1.2fr 1fr 1fr}
+  .ch-head{grid-template-columns:auto 1fr;align-items:end;column-gap:28px}
+  .ch-head .num{grid-row:1/3}
+}
+
+/* 15. Barra inferior en escritorio: flotante y compacta */
+@media(min-width:960px){
+  body{padding-bottom:96px}
+  .dock{inset:auto auto 18px 50%;transform:translateX(-50%);width:min(480px,92%);border:1px solid var(--ocre);border-radius:99px;padding:8px}
+}
